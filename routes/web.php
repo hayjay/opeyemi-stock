@@ -14,6 +14,7 @@
 Route::match(['get', 'post'], '/', 'UserController@index')->name('login');
 Route::group(['prefix' => 'product', 'middleware' => 'auth'], function(){
 	Route::match(['get', 'post'], '/', 'ProductController@addProduct');
+	Route::get('/list-product', 'ProductController@allProducts');
 	Route::match(['get', 'post'], '/purchase', 'ProductController@purchaseProduct');
 });
 Route::get('/logout', function(){
